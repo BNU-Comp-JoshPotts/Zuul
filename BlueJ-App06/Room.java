@@ -1,6 +1,7 @@
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  * Class Room - a room in an adventure game.
@@ -20,6 +21,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
+    ArrayList<Item> items = new ArrayList<Item>();
 
     /**
      * Create a room described "description". Initially, it has
@@ -77,6 +79,9 @@ public class Room
         {
             returnString += " " + exit;
         }
+        returnString += "\nItems in the room:\n";
+        returnString += getRoomItems();
+        
         return returnString;
     }
 
@@ -90,5 +95,49 @@ public class Room
     {
         return exits.get(direction);
     }
+    /**
+     * Get an item from the room
+     **/
+    public Item getItem(int index) {
+        return items.get(index); 
+    }
+    /**
+     * Get an item from the room
+     **/
+    public Item getItem(String itemName) {   
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getDescription().equals(itemName)){
+                return items.get(i);
+        }
+    }
+    return null;
+    }
+    /**
+     * Remove an item from the room
+     **/
+    public void removeItem(String itemName) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getDescription().equals(itemName)){
+                items.remove(i);
+        }
+    }
+    }
+    /**
+     * Set an item to appear in a room
+     */
+    public void setItem(Item newItem) {
+        items.add(newItem);
+    }
+    /**
+     * Description of the items in room
+     */
+    public String getRoomItems() {
+        String output = "";
+        for (int i = 0; i < items.size(); i++) {
+            output += items.get(i).getDescription() + " ";
+        }
+        return output;
+    }
 }
+
 

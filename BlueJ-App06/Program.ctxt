@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Program
+comment0.text=\r\n\ This\ class\ creates\ an\ instance\ of\ the\ Game\r\n\ class\ and\ then\ calls\ on\ its\ run\ method.\r\n\r\n\ @author\ Derek\ Peacock\r\n\ @version\ 0.1\r\n
+comment1.params=
+comment1.target=void\ main()
+comment1.text=\r\n\ This\ class\ creates\ and\ runs\ an\ instance\ of\r\n\ the\ Game\ class\r\n
+numComments=2
